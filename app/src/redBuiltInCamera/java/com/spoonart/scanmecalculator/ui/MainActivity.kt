@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.spoonart.scanmecalculator.ui.screen.ComposeFileProvider
+import com.spoonart.scanmecalculator.ui.screen.Loading
 import com.spoonart.scanmecalculator.ui.screen.dbviewer.DatabaseViewer
 import com.spoonart.scanmecalculator.ui.screen.home.HomeDisplay
 import com.spoonart.scanmecalculator.ui.screen.launchCameraPicker
@@ -40,24 +41,31 @@ class MainActivity : ComponentActivity() {
 
                     val error by viewModel.errorState.collectAsState(null)
                     val data by viewModel.resultState.collectAsState(null)
-
+                    var showLoading by remember { mutableStateOf(false) }
 
                     val context = LocalContext.current
                     val uri = ComposeFileProvider.getImageUri(context)
                     val launcher = launchCameraPicker { isSuccess ->
                         if (isSuccess) {
+                            showLoading = true
                             viewModel.scanImage(context, uri)
                         }
                     }
 
-                    if (error != null && data == null) {
+                    if (error != null) {
                         Toast.makeText(context, error?.message, Toast.LENGTH_SHORT).show()
+                        showLoading = false
+                    }
+
+                    if (data != null) {
+                        showLoading = false
+                    }
+
+                    if (showLoading) {
+                        Loading()
                     }
 
                     var shouldOpenDBViewer by remember{ mutableStateOf(false) }
-                    if(data != null){
-                        shouldOpenDBViewer = false
-                    }
                     HomeDisplay(
                         collections = data ?: listOf(),
                         onPickImage = {
@@ -68,8 +76,16 @@ class MainActivity : ComponentActivity() {
                             shouldOpenDBViewer = true
                         }
                     )
-                    if(shouldOpenDBViewer){
-                        DatabaseViewer(viewModel = viewModel)
+
+                    if (shouldOpenDBViewer) {
+                        DatabaseViewer(
+                            viewModel = viewModel,
+                            onLoaded = {
+                                shouldOpenDBViewer = false
+                            }, onBack = {
+                                shouldOpenDBViewer = false
+                            }
+                        )
                     }
                 }
             }

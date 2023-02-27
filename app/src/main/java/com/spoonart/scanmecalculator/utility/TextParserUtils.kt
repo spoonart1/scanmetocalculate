@@ -32,15 +32,11 @@ class TextParserUtils {
 
     @Throws(IllegalArgumentException::class)
     fun calculate(source: String): Double {
-        if (!source.matches(Regex("-?\\d+(\\.\\d+)?"))) {
-            throw IllegalArgumentException("Given source cannot be calculated")
-        }
-
         val regex = "[0-9]"
         val operator = source.replace(Regex(regex), "")
         val numbers = source.split(operator)
         val arithmetic = operators[operator]
         return arithmetic?.apply(a = numbers.first().toDouble(), b = numbers.last().toDouble())
-            ?: throw IllegalArgumentException("Given source cannot be calculated")
+            ?: throw IllegalArgumentException("Given source = $source and cannot be calculated,")
     }
 }

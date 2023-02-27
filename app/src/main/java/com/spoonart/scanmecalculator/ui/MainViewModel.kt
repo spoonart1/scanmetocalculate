@@ -46,7 +46,7 @@ class MainViewModel @Inject constructor(
     val databaseResult = _databaseResult.asStateFlow()
 
     fun loadProblemsFromDatabase() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             repository.getData().collect {
                 val itemFileDataList = it.map { entity ->
                     ItemFileData(
