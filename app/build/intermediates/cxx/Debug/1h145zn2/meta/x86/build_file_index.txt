@@ -1,1 +1,0 @@
-D:\Android Things\ScanMeCalculator\app\CMakeLists.txt

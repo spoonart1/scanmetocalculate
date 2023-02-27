@@ -1,3 +1,0 @@
-ninja: Entering directory `D:\Android Things\ScanMeCalculator\app\.cxx\Debug\1h145zn2\armeabi-v7a'
-[1/2] Building CXX object CMakeFiles/native-lib.dir/src/cpp/native-lib.cpp.o
-[2/2] Linking CXX shared library ..\..\..\..\build\intermediates\cxx\Debug\1h145zn2\obj\armeabi-v7a\libnative-lib.so

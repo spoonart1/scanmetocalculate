@@ -1,1 +1,0 @@
-D:\Android Things\ScanMeCalculator\app\build\intermediates\cxx\Debug\1h145zn2\obj\x86_64

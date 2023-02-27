@@ -50,7 +50,7 @@ class MainActivity : ComponentActivity() {
                         }
                     })
 
-                    if (error != null && data == null) {
+                    if (error != null) {
                         Toast.makeText(context, error?.message, Toast.LENGTH_SHORT).show()
                         showLoading = false
                     }

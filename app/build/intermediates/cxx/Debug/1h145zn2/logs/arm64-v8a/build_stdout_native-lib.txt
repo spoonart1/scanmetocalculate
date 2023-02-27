@@ -1,2 +1,0 @@
-ninja: Entering directory `D:\Android Things\ScanMeCalculator\app\.cxx\Debug\1h145zn2\arm64-v8a'
-ninja: no work to do.

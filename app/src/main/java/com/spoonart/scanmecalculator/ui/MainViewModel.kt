@@ -89,7 +89,7 @@ class MainViewModel @Inject constructor(
                 val result = textParserUtils.calculate(source)
                 itemDisplayDataList.add(ItemDisplayData(input = source, result = result))
                 _resultState.value = itemDisplayDataList
-            } catch (e: IllegalArgumentException) {
+            } catch (e: Exception) {
                 val message = "Error: ${e.localizedMessage ?: "unknown error"}"
                 _errorState.tryEmit(ErrorData.create(message))
 
