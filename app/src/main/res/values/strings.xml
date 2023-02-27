@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ScanMeCalculator</string>
+    <string-array name="input_options">
+        <item>Use file storage</item>
+        <item>Use database storage</item>
+    </string-array>
+</resources>

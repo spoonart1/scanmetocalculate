@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.spoonart.scanmecalculator.app-mergeGreenFileSystemDebugResources-44:/values-land/values-land.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\myspo\\.gradle\\caches\\transforms-3\\fca040a66fb6401ab3b9cf4f8e58c7bf\\transformed\\ui-1.1.1\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "48",
+                        "endOffsets": "99"
+                    }
+                }
+            ]
+        }
+    ]
+}
